@@ -1,0 +1,6 @@
+<a href="patient-guide/patient-guide.pdf"
+   download
+   id="downloadGuide"
+   class="download-btn">
+    Download Patient Guide
+</a>
