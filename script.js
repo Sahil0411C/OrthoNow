@@ -829,6 +829,34 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
     });
 
 });
+// ================blog=====================//
+let fired = [];
+
+window.addEventListener("scroll", function() {
+
+    let scrollTop = window.scrollY;
+    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    let percent = Math.round((scrollTop / docHeight) * 100);
+
+    [25, 50, 75, 100].forEach(level => {
+
+        if (percent >= level && !fired.includes(level)) {
+
+            fired.push(level);
+
+            dataLayer.push({
+                event: "blog_scroll",
+                scroll_depth: level,
+                article_name: "ACL Surgery"
+            });
+
+            console.log("blog_scroll", level);
+
+        }
+
+    });
+
+});
 
 // ===================================
 // Page Loaded
